@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing Machine Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260413d">
+</head>
+<body>
+    <header class="page-header">
+        <div class="top-pill">
+            <span>Tape</span>
+            <span>Rules</span>
+            <span>State Diagram</span>
+            <span>Run</span>
+        </div>
+        <h1>Turing Machine Simulator</h1>
+        <p class="hero-subtitle">Model the computation step by step, from one symbol to the next.</p>
+        <div class="hero-cta">Start with rules -> initialize -> step/run</div>
+    </header>
+
+    <section id="guide-panel" class="panel">
+        <h2>How to Use</h2>
+        <ol class="guide-list">
+            <li>Write rules in <strong>Machine Rules</strong> as: <span class="mono">currentState,readSymbol,nextState,writeSymbol,move</span>.</li>
+            <li>Enter your starting tape symbols in <strong>Input String</strong>.</li>
+            <li>Click <strong>Initialize</strong> to load rules and place the head at the first symbol.</li>
+            <li>Click <strong>Step</strong> to run one transition, or <strong>Run</strong> to continue automatically.</li>
+            <li>If no rule matches the current state and symbol, the machine halts. Use <strong>Reset</strong> to start again.</li>
+        </ol>
+
+        <h3>How It Works (Turing Machine POV)</h3>
+        <p class="guide-flow"><span class="mono">Read symbol</span> -> <span class="mono">Find matching rule</span> -> <span class="mono">Write symbol</span> -> <span class="mono">Move L/R/S</span> -> <span class="mono">Change state</span></p>
+    </section>
+
+    <main class="app-layout">
+        <section id="tape-section" class="panel">
+            <h2>Tape</h2>
+            <div id="machine-container">
+                <div id="tape-container">
+                    <div id="tape"></div>
+                </div>
+                <div id="head-container">
+                    <div id="head"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="core-grid">
+            <div class="left-column">
+                <section id="rules-input" class="panel">
+                    <h2>Machine Rules</h2>
+                    <textarea id="rules" placeholder="q0,1,q1,0,R..."></textarea>
+                </section>
+
+                <section id="input-section" class="panel">
+                    <h2>Input String</h2>
+                    <input type="text" id="input-string" placeholder="Enter the initial tape string...">
+                </section>
+            </div>
+
+            <section id="diagram-container" class="panel">
+                <h2>State Diagram</h2>
+                <div class="mermaid" id="diagram-view">graph TD;</div>
+            </section>
+        </section>
+
+        <section class="panel controls-status-panel">
+            <div id="controls-container">
+                <h3>Controls</h3>
+                <div class="button-row">
+                    <button id="initialize-btn" class="btn btn-secondary">Initialize</button>
+                    <button id="reset-btn" class="btn btn-outline">Reset</button>
+                    <button id="step-btn" class="btn btn-outline-primary">Step</button>
+                    <button id="run-btn" class="btn btn-primary">Run</button>
+                </div>
+            </div>
+
+            <div id="status-container">
+                <h3>Status</h3>
+                <div class="status-row">
+                    <span class="status-label">State:</span>
+                    <span id="current-state" class="badge badge-state">q0</span>
+                    <span class="status-label">Steps:</span>
+                    <span id="step-count" class="badge badge-steps">0</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
