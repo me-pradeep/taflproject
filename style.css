@@ -70,31 +70,6 @@ h3 {
     box-shadow: 0 14px 28px rgba(15, 23, 42, 0.22);
 }
 
-.top-pill {
-    display: inline-flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px 14px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 1);
-    box-shadow: 0 12px 28px rgba(67, 96, 128, 0.15);
-    backdrop-filter: blur(12px);
-}
-
-.top-pill span {
-    font-weight: 600;
-    color: #243b53;
-    font-size: 0.9rem;
-    padding: 6px 10px;
-    border-radius: 999px;
-}
-
-.top-pill span:last-child {
-    background: #111827;
-    color: #f8fafc;
-}
 
 .panel {
     background: var(--panel);
@@ -403,16 +378,6 @@ h3 {
 
     .guide-list {
         padding-left: 16px;
-    }
-
-    .top-pill {
-        padding: 8px 10px;
-        gap: 8px;
-    }
-
-    .top-pill span {
-        font-size: 0.82rem;
-        padding: 5px 8px;
     }
 
     .button-row .btn {
