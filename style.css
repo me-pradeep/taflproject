@@ -118,6 +118,8 @@ h3 {
 .mono {
     font-family: "JetBrains Mono", monospace;
     color: #1d4ed8;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .guide-flow {
