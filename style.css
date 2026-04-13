@@ -93,6 +93,7 @@ h3 {
 #guide-panel {
     max-width: 1200px;
     margin: 0 auto 20px;
+    overflow-x: hidden;
 }
 
 #guide-panel h2 {
@@ -109,6 +110,8 @@ h3 {
     margin: 0;
     padding-left: 18px;
     line-height: 1.6;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .guide-list li + li {
@@ -118,6 +121,9 @@ h3 {
 .mono {
     font-family: "JetBrains Mono", monospace;
     color: #1d4ed8;
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
 }
