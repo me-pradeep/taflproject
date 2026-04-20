@@ -41,11 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const rulesText = rulesInput.value.split('\n');
 
         for (const ruleText of rulesText) {
-            if (ruleText.trim() === '') {
+            const trimmedRule = ruleText.trim();
+            if (trimmedRule === '' || trimmedRule.startsWith('//')) {
                 continue;
             }
 
-            const parts = ruleText.split(',').map((part) => part.trim());
+            const parts = trimmedRule.split(',').map((part) => part.trim());
             if (parts.length !== 5) {
                 alert(`Invalid rule format: ${ruleText}`);
                 continue;

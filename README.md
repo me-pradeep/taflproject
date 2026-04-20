@@ -126,3 +126,52 @@ Click Initialize.
 Click Run.
 
 You should get final tape as 101001.
+
+## Example: Palindrome Checker for {a, b}
+
+This Turing Machine checks if a string is a palindrome (reads the same forwards and backward).
+
+### Logic
+
+The machine matches the first and last characters of the string. If they match, it erases them (replaces with a blank `B`) and repeats the process on the shortened string. If all characters are matched, the string is a palindrome.
+
+### Rules
+
+Copy and paste these rules into the "Machine Rules" text area:
+
+```
+// Start: Read the first character and remember it by changing state.
+q0,a,q1,B,R
+q0,b,q2,B,R
+q0,B,q_accept,B,S
+
+// q1: Saw 'a' at the start. Scan right to the end of the string.
+q1,a,q1,a,R
+q1,b,q1,b,R
+q1,B,q3,B,L
+
+// q2: Saw 'b' at the start. Scan right to the end of the string.
+q2,a,q2,a,R
+q2,b,q2,b,R
+q2,B,q4,B,L
+
+// q3: Reached the end. Must match the 'a' from the start.
+q3,a,q5,B,L
+
+// q4: Reached the end. Must match the 'b' from the start.
+q4,b,q5,B,L
+
+// q5: Match was successful. Rewind to the beginning of the string.
+q5,a,q5,a,L
+q5,b,q5,b,L
+q5,B,q0,B,R
+
+// q_accept: Final accepting state.
+```
+
+### How to Run
+
+1.  Paste the rules above into the **Machine Rules** box.
+2.  Enter a string like `abba` or `aabbaa` into the **Input String** field.
+3.  Click **Initialize**.
+4.  Click **Run** and watch the machine work. If the input is a palindrome, the machine will halt in the `q_accept` state. If not, it will halt in a different state because it will find no rule to apply.
