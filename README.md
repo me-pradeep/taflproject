@@ -153,8 +153,10 @@ q2,b,q2,b,R
 q2,B,q4,B,L
 
 q3,a,q5,B,L
+q3,B,q_accept,B,S
 
 q4,b,q5,B,L
+q4,B,q_accept,B,S
 
 q5,a,q5,a,L
 q5,b,q5,b,L
